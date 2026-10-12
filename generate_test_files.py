@@ -1,0 +1,75 @@
+import csv
+from pathlib import Path
+
+# 1. Non-legal CSV document
+with open("test_financial.csv", "w", newline="", encoding="utf-8") as f:
+    writer = csv.writer(f)
+    writer.writerow(["Department", "Q1 Budget", "Q2 Budget", "Q3 Projected", "Lead Manager"])
+    writer.writerow(["Engineering", "$450,000", "$480,000", "$510,000", "Alice Chang"])
+    writer.writerow(["Marketing", "$180,000", "$210,000", "$240,000", "Bob Ross"])
+    writer.writerow(["Customer Operations", "$120,000", "$130,000", "$140,000", "Charlie Brown"])
+    writer.writerow(["Product Design", "$90,000", "$95,000", "$100,000", "Diana Prince"])
+
+# 2. Non-legal Markdown document
+Path("test_tech_spec.md").write_text("""# Distributed Cache Architecture Specification
+Author: Systems Engineering Team
+Date: March 15, 2024
+Status: Approved
+
+## Overview & Purpose
+This technical specification defines the distributed memory caching layer for LexiGuard AI. It provides low-latency key-value storage for document vector embeddings and inference token caches.
+
+## Architecture & Components
+1. Memory Engine: In-memory LRU cache with Redis cluster failover.
+2. Eviction Policy: Least Recently Used with a maximum cluster size of 64GB.
+3. Network Protocol: TLS 1.3 encrypted gRPC connections with 5ms SLA.
+
+## Action Items
+- Provision nodes across 3 availability zones by April 1, 2024.
+- Implement token bucket rate limiting on inbound client connections.
+- Run failover chaos engineering simulation before public release.
+""", encoding="utf-8")
+
+# 3. Long Contract Document
+Path("test_long_contract.txt").write_text("""MASTER SERVICES AND SOFTWARE LICENSE AGREEMENT
+
+This Master Services Agreement ("Agreement") is entered into on June 1, 2024 ("Effective Date") between Apex Enterprise Solutions Inc., a Delaware corporation with offices at 500 Tech Boulevard, San Francisco, CA ("Provider"), and Global Logistics Corp., an Ohio corporation located at 1200 Industrial Parkway, Cleveland, OH ("Customer"). Provider and Customer may collectively be referred to as the "Parties."
+
+1. SCOPE OF SERVICES
+Provider agrees to design, configure, host, and maintain a cloud-based logistics route optimization platform ("Software") for Customer as detailed in attached Statements of Work. All services shall be performed in accordance with professional engineering standards.
+
+2. TERM AND DURATION
+The initial term of this Agreement shall commence on the Effective Date and continue for an initial duration of 36 months, concluding on May 31, 2027. Thereafter, this Agreement shall automatically renew for successive 12-month periods unless either party delivers written notice of non-renewal at least 60 days prior to the expiration of the then-current term.
+
+3. FEES, BILLING AND PAYMENT TERMS
+Customer shall pay an annual platform subscription fee of $75,000.00 USD, payable in equal quarterly installments of $18,750.00 due within 30 days of invoice receipt. Overdue balances shall accrue interest at a rate of 1.5% per month or the maximum allowable rate by law. Any disputed charges must be reported in writing within 15 days of invoice date.
+
+4. SERVICE LEVEL AGREEMENT (SLA) AND UPTIME
+Provider guarantees a monthly system uptime availability of 99.9%. In the event availability falls below 99.5% in any calendar month, Customer shall receive a 10% credit against the applicable quarterly fee. In the event availability falls below 98.0%, Customer may terminate this Agreement without penalty upon 10 days written notice.
+
+5. CONFIDENTIALITY AND NON-DISCLOSURE
+Each party agrees to maintain in strict confidence all proprietary, technical, and financial information disclosed by the other party. The Receiving Party shall not disclose Confidential Information to any third party without prior written consent and shall protect such information with at least the standard of care it uses for its own confidential assets, but not less than reasonable care.
+
+6. INTELLECTUAL PROPERTY AND LICENSING
+Provider retains all right, title, and ownership in and to the Software, underlying algorithms, models, and documentation. Customer receives a non-exclusive, non-transferable license to use the platform during the term. Customer owns all Customer Data uploaded or processed by the system.
+
+7. LIMITATION OF LIABILITY AND INDEMNIFICATION
+In no event shall either party's aggregate liability arising out of or related to this Agreement exceed the total fees paid or payable by Customer in the twelve (12) months preceding the claim. Neither party shall be liable for indirect, incidental, punitive, or consequential damages. Provider shall indemnify Customer against third-party claims alleging that the Software infringes any registered US patent or copyright.
+
+8. TERMINATION FOR CAUSE
+Either party may terminate this Agreement immediately upon written notice if the other party breaches any material term and fails to cure such breach within 30 days of receiving written notice. In the event of bankruptcy, insolvency, or assignment for the benefit of creditors, termination may be immediate.
+
+9. GOVERNING LAW AND DISPUTE RESOLUTION
+This Agreement shall be governed by and construed in accordance with the substantive laws of the State of California, without regard to conflicts of law principles. Any dispute arising under this Agreement shall be submitted to binding arbitration in San Francisco, California under the rules of the American Arbitration Association (AAA).
+
+10. ENTIRE AGREEMENT
+This Agreement constitutes the entire agreement between the Parties and supersedes all prior proposals, negotiations, and representations. Amendments must be in writing and signed by authorized representatives of both Parties.
+""", encoding="utf-8")
+
+# 4. Empty File
+Path("test_empty.txt").write_bytes(b"")
+
+# 5. Corrupted PDF File
+Path("test_corrupt.pdf").write_bytes(b"%PDF-1.4\nCorrupted binary garbage that cannot be parsed by any PDF viewer\x00\xFF\xFE\x01\x02")
+
+print("Generated all test files successfully.")

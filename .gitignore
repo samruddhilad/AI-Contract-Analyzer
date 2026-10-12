@@ -1,0 +1,45 @@
+# Python environments
+venv/
+.venv/
+**/venv/
+**/.venv/
+backend/venv/
+backend/.venv/
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.coverage
+
+# Node dependencies and builds
+node_modules/
+**/node_modules/
+web/dist/
+web/.next/
+mobile/.expo/
+
+# Secrets & Environment variables
+.env
+.env.*
+*.env
+!.env.example
+
+# Uploaded private documents
+backend/uploads/*
+!backend/uploads/.gitkeep
+
+# Model weights & caches
+*.safetensors
+*.gguf
+*.bin
+*.pt
+*.pth
+backend/models_cache/*
+!backend/models_cache/.gitkeep
+
+# OS and IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
